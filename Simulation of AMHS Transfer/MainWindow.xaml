@@ -5,8 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulation_of_AMHS_Transfer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Simulation of AMHS" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="信息输出：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                    <Line Stretch="Fill" Stroke="LightGray" X2="1" Margin="10 10 10 0" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10 0 10 10">
+                    <ScrollViewer.Content>
+                        <!--<TextBox x:Name="Output_Index" AcceptsReturn="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Text="{Binding Path=Show,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="NoWrap" IsReadOnly="False"/>-->
+                        <TextBlock x:Name="Output_Index" xml:space="preserve" Margin="10" Background="Transparent" FontSize="12" LineHeight="20" Text="{Binding Path=Show,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+                    </ScrollViewer.Content>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="0 50 0 20"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="474*"/>
+                        <ColumnDefinition Width="67*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+                        <TextBlock Text="数据导入：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                        <Line Stretch="Fill" Stroke="LightGray" X2="1" Margin="10 10 20 0" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="制程数据：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" x:Name="ProcessData" Width="300" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                <Button Grid.Row="0" Grid.Column="2" Name="btn_ProcessData" Content="浏览" Margin="10 0 0 0" Background="White" BorderBrush="White" Foreground="Gray" Click="btn_ProcessData_Click"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Grid.Column="0" Text="设备信息：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                                <TextBox Grid.Column="1" Name="IndexInfo" Width="300" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                                <Button Grid.Row="0" Grid.Column="2" Name="btn_IndexInfo" Content="浏览" Margin="10 0 0 0" Background="White" BorderBrush="White" Foreground="Gray" Click="btn_IndexInfo_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="参数设置：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                        <Line Stretch="Fill" Stroke="LightGray" X2="1" Margin="10 10 20 0" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="卡匣投入量：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Name="CST_Count" Text="1154" Width="80" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0" />
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="时间周期：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Name="Time_All" Text="30" Width="80" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Grid.Column="0" Text="STK内Index权重：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                            <TextBox Grid.Column="1" Name="Index_Wight_InSTK" Text="6" Width="80" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                            <TextBlock Grid.Column="0" Text="STK外Index权重：" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                            <TextBox Grid.Column="1" Name="Index_Wight_OutSTK" Text="4" Width="80" FontSize="15" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 0 0"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button x:Name="Start" Width="100" Height="30" Click="Button_Click" Content="解析路径" FontSize="13" Foreground="Gray" Background="White" BorderBrush="White" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20 0 20 0"/>
+                <Button x:Name="ResultCopy" Width="100" Height="30" Content="保存结果" FontSize="13" Click="Button_Click_1" Foreground="Gray" Background="White" BorderBrush="White" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20 0 20 0" Visibility="Hidden"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

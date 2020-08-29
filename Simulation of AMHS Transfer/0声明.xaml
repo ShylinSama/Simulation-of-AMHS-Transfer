@@ -1,0 +1,35 @@
+﻿<Window x:Class="Simulation_of_AMHS_Transfer._0声明"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulation_of_AMHS_Transfer"
+        mc:Ignorable="d"
+        Title="声明" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Button Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Content="X" FontSize="10" Foreground="Gray" Background="Transparent" BorderBrush="Transparent" Click="Button_Click_1" Panel.ZIndex="1"/>
+        <TextBlock xml:space="preserve" Grid.Row="0" Margin="20" Background="Transparent" FontSize="12" LineHeight="20" >
+            <TextBlock.Text>声明：
+                使用方法：
+                        1、需要按要求手动导入制程信息，格式为：序号、站点、抽检比例、可选设备；
+                        2、需要按要求手动导入Index所属STK信息，格式为：IndexID、STK ID；
+                        3、需要设置参加模拟的CST数量，即循环次数；
+                        4、过程中间会产生Log，包括：进行制程的Index Log、CST进行搬送过程的Log；
+                基本逻辑：
+                        1、忽略时间因素，默认Index一直处于Idle状态，不考虑制程和搬送时间；
+                        2、权重设置默认STK搬送权重为6，跨STK搬送权重为4，当两个Index处理CST数量一致时，优先搬送到跨STK机台；
+                        3、权重设置可以更改，当权重相等时，即不考虑跨STK对搬送的影响；
+                        4、引入随机变量，用来模拟抽检比例，最后会输出各个站点的实际抽检比例用作对比；
+                注意事项：
+                        1、使用的制程信息.xml、Index所属STK信息.xml不能是加密文件，否则不能导入信息；
+                        2、制程信息.xml、Index所属STK信息.xml两个配置文件需要按照范例格式进行填写，以\t进行分割；
+                        3、此Demo未增加太多导入信息匹配检测功能，需要使用者自己核对导入的制程信息和Index所属STK信息是否匹配；
+            </TextBlock.Text>
+        </TextBlock>
+        <Button Grid.Row="1" Width="100" Height="40" Content="新建模拟" Foreground="Gray" FontSize="13" Background="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 10" BorderBrush="White" Click="Button_Click"/>
+    </Grid>
+</Window>
