@@ -1,0 +1,31 @@
+﻿<Window x:Class="Simulation_of_AMHS_Transfer._1数据修改"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulation_of_AMHS_Transfer"
+        mc:Ignorable="d"
+        Title="数据修改"
+        Height="450" Width="800" 
+        MinHeight="450" MaxHeight="450" 
+        MaxWidth="800" MinWidth="800" 
+        WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <DataGrid
+          Margin="0 8 0 0"
+          Name="ProcessDataGrid"
+          CanUserSortColumns="False"
+          ItemsSource="{Binding Process_Station}"
+          CanUserAddRows="False" >
+
+            <!--<DataGrid.Columns> 
+                <DataGridTextColumn/>
+                <DataGridTextColumn Header="序号" Binding="{Binding Number}"/>
+                <DataGridTextColumn Header="站号" Binding="{Binding Process_Station_Number}"/>
+                <DataGridTextColumn Header="抽检率" Binding="{Binding Selection_Ratio}"/>
+                <DataGridTextColumn Header="设备" Binding="{Binding Selection_Index_String_All}"/>
+            </DataGrid.Columns>-->
+
+        </DataGrid>
+    </Grid>
+</Window>
